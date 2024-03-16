@@ -22,7 +22,9 @@ export const Page = withFallback(
         <button
           onClick={async () => {
             await onLogin();
-            queryClient.invalidateQueries();
+            queryClient.invalidateQueries({
+              queryKey: ["profile"],
+            });
           }}
         >
           Login
@@ -30,7 +32,9 @@ export const Page = withFallback(
         <button
           onClick={async () => {
             await onLogout();
-            queryClient.invalidateQueries();
+            queryClient.invalidateQueries({
+              queryKey: ["profile"],
+            });
           }}
         >
           Logout
