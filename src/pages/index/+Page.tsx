@@ -1,21 +1,27 @@
 import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { withFallback } from "vike-react-query";
-import { getProfile, login, logout } from "./Page.telefunc";
+import {
+  onGetProfile,
+  onGetProtectedResource,
+  onLogin,
+  onLogout,
+} from "./Page.telefunc";
 
 export const Page = withFallback(
   () => {
     const queryClient = useQueryClient();
     const { data } = useSuspenseQuery({
       queryKey: ["profile"],
-      queryFn: getProfile,
+      queryFn: onGetProfile,
     });
 
     return (
       <div>
         {data ? `Hi, ${data.id}` : "Not logged in"}
+        {data ? <ProtectedResource /> : null}
         <button
           onClick={async () => {
-            await login();
+            await onLogin();
             queryClient.invalidateQueries();
           }}
         >
@@ -23,7 +29,7 @@ export const Page = withFallback(
         </button>
         <button
           onClick={async () => {
-            await logout();
+            await onLogout();
             queryClient.invalidateQueries();
           }}
         >
@@ -34,5 +40,18 @@ export const Page = withFallback(
   },
   {
     Error: () => <h1>Error</h1>,
+  }
+);
+
+const ProtectedResource = withFallback(
+  () => {
+    const { data } = useSuspenseQuery({
+      queryKey: ["protected-resource"],
+      queryFn: onGetProtectedResource,
+    });
+    return <h1>{data.name}</h1>;
+  },
+  {
+    Error: ({ error: { message } }) => <h1>Error: {message}</h1>,
   }
 );

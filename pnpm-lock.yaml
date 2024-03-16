@@ -21,8 +21,8 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   telefunc:
-    specifier: ^0.1.71
-    version: 0.1.71(@babel/core@7.24.0)(react-streaming@0.3.24)(react@18.2.0)
+    specifier: 0.1.70
+    version: 0.1.70(@babel/core@7.24.0)(react-streaming@0.3.24)(react@18.2.0)
   vike:
     specifier: 0.4.162
     version: 0.4.162(react-streaming@0.3.24)(vite@5.1.6)
@@ -2156,8 +2156,8 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /telefunc@0.1.71(@babel/core@7.24.0)(react-streaming@0.3.24)(react@18.2.0):
-    resolution: {integrity: sha512-1AV4At59PiQmrzBEfx8hoboOAyya2xWYKzwWCrFFaPmkwkm5yCEPrH9iWtCvPNBOk7f8VQGF14bmtXczm6tIKg==}
+  /telefunc@0.1.70(@babel/core@7.24.0)(react-streaming@0.3.24)(react@18.2.0):
+    resolution: {integrity: sha512-Ylv2351ahqH4oe1qsubTDrpCfoPSd5XyMLJckMMvSoe4Hk8dHagb0AzVP5KZAp9dv988GzIYVEwOaE6FeHiYcw==}
     engines: {node: '>=12.19.0'}
     peerDependencies:
       '@babel/core': ^7.0.0
